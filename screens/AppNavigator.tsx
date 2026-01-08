@@ -7,7 +7,14 @@ import SignUp from "./auth/SignUp";
 import GetStarted from "./GetStarted";
 import Dashboard from "./Dashboard";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  GetStarted: undefined;
+  Login: undefined;
+  SignUp: undefined;
+  Home: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
   return (
