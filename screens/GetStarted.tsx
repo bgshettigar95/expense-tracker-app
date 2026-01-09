@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 import { RootStackParamList } from "./AppNavigator";
+import { LinearGradient } from "expo-linear-gradient";
 
 type Props = NativeStackScreenProps<RootStackParamList, "GetStarted">;
 
@@ -17,7 +18,6 @@ const GetStarted = ({ navigation }: Props) => {
     navigation.setOptions({
       title: "",
       headerStyle: { backgroundColor: "black" },
-      headerTintColor: "#fff",
       headerRight: () => {
         return (
           <Pressable onPress={() => navigation.navigate("Login")}>
@@ -30,10 +30,15 @@ const GetStarted = ({ navigation }: Props) => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/homescreen.png")}
-        style={styles.image}
-      />
+      <LinearGradient
+        colors={["black", "#393737ff"]}
+        style={styles.imgContainer}
+      >
+        <Image
+          source={require("../assets/homescreen.png")}
+          style={styles.image}
+        />
+      </LinearGradient>
 
       <View style={styles.content}>
         <Text style={styles.title}>
@@ -57,10 +62,17 @@ const GetStarted = ({ navigation }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
-    paddingBottom: 60,
+    paddingBottom: 80,
     backgroundColor: "black",
+  },
+  imgContainer: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 20,
+    flexBasis: "60%",
   },
   image: {
     resizeMode: "contain",
@@ -68,15 +80,15 @@ const styles = StyleSheet.create({
     width: 350,
   },
   content: {
-    justifyContent: "center",
+    flex: 1,
+    justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    padding: 20,
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 28,
     textAlign: "center",
     color: "#fff",
   },

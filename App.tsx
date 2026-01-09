@@ -1,8 +1,14 @@
 import { StyleSheet } from "react-native";
 import AppNavigator from "./screens/AppNavigator";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
-  return <AppNavigator />;
+  return (
+    <>
+      <StatusBar style="light" />
+      <AppNavigator />
+    </>
+  );
 }
 
 const styles = StyleSheet.create({
