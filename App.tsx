@@ -1,20 +1,22 @@
 import { StyleSheet } from "react-native";
 import AppNavigator from "./screens/AppNavigator";
 import { StatusBar } from "expo-status-bar";
+import { ThemeProvider, useTheme } from "./theme/ThemeProvider";
 
 export default function App() {
+  const theme = useTheme();
+
   return (
-    <>
-      <StatusBar style="light" />
+    <ThemeProvider>
+      <StatusBar style={theme.statusBarStyle} />
       <AppNavigator />
-    </>
+    </ThemeProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },

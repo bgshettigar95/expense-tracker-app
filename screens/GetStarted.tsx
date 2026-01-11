@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useMemo } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import {
   Image,
@@ -10,18 +10,23 @@ import {
 } from "react-native";
 import { RootStackParamList } from "./AppNavigator";
 import { LinearGradient } from "expo-linear-gradient";
+import { useTheme } from "../theme/ThemeProvider";
+import { createCommonStyles } from "../styles/commonStyles";
+import { spacing } from "../theme/tokens";
 
 type Props = NativeStackScreenProps<RootStackParamList, "GetStarted">;
 
 const GetStarted = ({ navigation }: Props) => {
+  const theme = useTheme();
+  const commonStyles = useMemo(() => createCommonStyles(theme), [theme]);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "",
-      headerStyle: { backgroundColor: "black" },
       headerRight: () => {
         return (
           <Pressable onPress={() => navigation.navigate("Login")}>
-            <Text style={styles.buttonText}> Sign In</Text>
+            <Text style={commonStyles.navLink}> Sign In</Text>
           </Pressable>
         );
       },
@@ -29,9 +34,9 @@ const GetStarted = ({ navigation }: Props) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, commonStyles.screen]}>
       <LinearGradient
-        colors={["black", "#393737ff"]}
+        colors={[theme.background, theme.border]}
         style={styles.imgContainer}
       >
         <Image
@@ -41,18 +46,18 @@ const GetStarted = ({ navigation }: Props) => {
       </LinearGradient>
 
       <View style={styles.content}>
-        <Text style={styles.title}>
+        <Text style={[commonStyles.title, commonStyles.textCenter]}>
           Stay on top of your expenses, effortlessly
         </Text>
-        <Text style={styles.description}>
+        <Text style={[commonStyles.description, commonStyles.textCenter]}>
           Track your daily expenses and manage your money smarter. Stay
           organized and achieve your financial goals.
         </Text>
         <TouchableOpacity
-          style={[styles.button, styles.secondaryButton]}
+          style={[commonStyles.button, commonStyles.buttonPrimary]}
           onPress={() => navigation.navigate("SignUp")}
         >
-          <Text style={styles.buttonText}>Get Started</Text>
+          <Text style={commonStyles.buttonText}>Get Started</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -61,17 +66,15 @@ const GetStarted = ({ navigation }: Props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
     paddingBottom: 80,
-    backgroundColor: "black",
   },
   imgContainer: {
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 20,
+    marginBottom: spacing.md,
     flexBasis: "60%",
   },
   image: {
@@ -84,35 +87,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
-    paddingHorizontal: 20,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: "#fff",
-  },
-  description: {
-    fontSize: 14,
-    marginBottom: 28,
-    textAlign: "center",
-    color: "lightgrey",
-  },
-  button: {
-    width: "100%",
-    padding: 15,
-    borderRadius: 8,
-    backgroundColor: "#007AFF",
-    marginBottom: 15,
-    alignItems: "center",
-  },
-  secondaryButton: {
-    backgroundColor: "#5d22caff",
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "700",
+    paddingHorizontal: spacing.sm,
   },
 });
 
