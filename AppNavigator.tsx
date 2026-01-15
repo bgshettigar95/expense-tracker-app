@@ -2,12 +2,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import React from "react";
-import Login from "./auth/Login";
-import SignUp from "./auth/SignUp";
-import GetStarted from "./GetStarted";
-import Dashboard from "./Dashboard";
-import { useTheme } from "../theme/ThemeProvider";
+import Login from "./screens/auth/Login";
+import SignUp from "./screens/auth/SignUp";
+import GetStarted from "./screens/GetStarted";
+import { useTheme } from "./theme/ThemeProvider";
 import { StatusBar } from "expo-status-bar";
+import BottomTabsNavigator from "./BottomTabsNavigator";
 
 export type RootStackParamList = {
   GetStarted: undefined;
@@ -38,7 +38,7 @@ const AppNavigator = () => {
         <Stack.Screen name="GetStarted" component={GetStarted} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="Home" component={Dashboard} />
+        <Stack.Screen name="Home" component={BottomTabsNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

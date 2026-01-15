@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { RootStackParamList } from "./AppNavigator";
+import { RootStackParamList } from "../AppNavigator";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "../theme/ThemeProvider";
 import { createCommonStyles } from "../styles/commonStyles";

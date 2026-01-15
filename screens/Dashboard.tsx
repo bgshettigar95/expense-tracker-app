@@ -1,8 +1,15 @@
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+
+const Tab = createBottomTabNavigator();
 
 const Dashboard = () => {
-  return <Text>Dashboard</Text>;
+  return (
+    <View>
+      <Text>Dashboard</Text>
+    </View>
+  );
 };
 
 export default Dashboard;

@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { RootStackParamList } from "../AppNavigator";
+import { RootStackParamList } from "../../AppNavigator";
 import { useTheme } from "../../theme/ThemeProvider";
 import { createCommonStyles } from "../../styles/commonStyles";
 import { spacing } from "../../theme/tokens";
@@ -48,7 +48,10 @@ const Login = ({ navigation }: Props) => {
           </Text>
         </Pressable>
 
-        <Pressable style={[commonStyles.button, commonStyles.buttonPrimary]}>
+        <Pressable
+          style={[commonStyles.button, commonStyles.buttonPrimary]}
+          onPress={() => navigation.navigate("Home")}
+        >
           <Text style={commonStyles.buttonText}>Login</Text>
         </Pressable>
       </View>

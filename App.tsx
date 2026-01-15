@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import AppNavigator from "./screens/AppNavigator";
+import AppNavigator from "./AppNavigator";
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider, useTheme } from "./theme/ThemeProvider";
 
