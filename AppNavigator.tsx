@@ -38,7 +38,13 @@ const AppNavigator = () => {
         <Stack.Screen name="GetStarted" component={GetStarted} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="Home" component={BottomTabsNavigator} />
+        <Stack.Screen
+          name="Home"
+          component={BottomTabsNavigator}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

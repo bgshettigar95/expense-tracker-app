@@ -6,16 +6,16 @@ export const lightTheme: Theme = {
   textSecondary: "#666666",
   primary: "#5d22caff",
   secondary: "#905defff",
-  border: "#666666",
+  border: "#e0e0e0",
   statusBarStyle: "dark",
 };
 
 export const darkTheme: Theme = {
-  background: "#000000",
+  background: "#121212",
   textPrimary: "#ffffff",
-  textSecondary: "lightgrey",
-  primary: "#5d22caff",
+  textSecondary: "#b0b0b0",
+  primary: "rgb(87, 20, 210)",
   secondary: "#905defff",
-  border: "#dddddd",
+  border: "#333333",
   statusBarStyle: "light",
 };

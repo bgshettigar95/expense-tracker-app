@@ -3,7 +3,7 @@ import { useColorScheme } from "react-native";
 import { lightTheme, darkTheme } from "./themes";
 import { Theme } from "./theme.types";
 
-const ThemeContext = createContext<Theme>(lightTheme);
+const ThemeContext = createContext<Theme>(darkTheme);
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -12,7 +12,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   // const scheme = useColorScheme();
   // const theme: Theme = scheme === "dark" ? darkTheme : lightTheme;
-  const theme = lightTheme;
+  const theme = darkTheme;
 
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>

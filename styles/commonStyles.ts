@@ -9,6 +9,11 @@ export const createCommonStyles = (theme: Theme) =>
       backgroundColor: theme.background,
     },
 
+    container: {
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.lg,
+    },
+
     title: {
       fontSize: fontSizes.xl,
       fontWeight: "bold",

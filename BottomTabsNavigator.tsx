@@ -29,6 +29,7 @@ const BottomTabsNavigator = () => {
         name="Dashboard"
         component={Dashboard}
         options={{
+          headerShown: false,
           tabBarShowLabel: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />

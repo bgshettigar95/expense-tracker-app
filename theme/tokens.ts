@@ -12,3 +12,8 @@ export const fontSizes = {
   lg: 20,
   xl: 28,
 };
+
+export const colors = {
+  income: "#4bc536",
+  expense: "#e34435",
+};
