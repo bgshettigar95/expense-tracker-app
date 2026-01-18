@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Transaction } from "../model/transaction";
-import transcations from "../dummy-data";
+import { transactions } from "../dummy-data";
 
 interface TransactionState {
   transactions: Transaction[];
@@ -18,8 +18,7 @@ export const fetchTransactions = createAsyncThunk(
   "transactions/fetchTransactions",
   async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    return transcations;
+    return transactions;
   },
 );
 

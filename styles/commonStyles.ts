@@ -10,7 +10,7 @@ export const createCommonStyles = (theme: Theme) =>
     },
 
     container: {
-      paddingHorizontal: spacing.md,
+      paddingHorizontal: spacing.lg,
       paddingVertical: spacing.lg,
     },
 
@@ -76,5 +76,17 @@ export const createCommonStyles = (theme: Theme) =>
       marginBottom: spacing.lg,
       borderRadius: 8,
       color: theme.textPrimary,
+    },
+
+    loading: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+
+    errorMessage: {
+      color: "red",
+      textAlign: "center",
+      fontSize: fontSizes.md,
     },
   });

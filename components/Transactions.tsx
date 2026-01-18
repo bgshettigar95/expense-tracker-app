@@ -1,10 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
+import { Transaction } from "../model/transaction";
 
-const Transactions = () => {
+const Transactions = ({ transaction }: { transaction: Transaction }) => {
   return (
     <View>
-      <Text>Transactions</Text>
+      <Text>{transaction.description}</Text>
     </View>
   );
 };
