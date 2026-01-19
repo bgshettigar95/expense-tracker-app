@@ -61,15 +61,7 @@ const Dashboard = () => {
 
         {error && <Text style={commonStyles.errorMessage}>error</Text>}
 
-        {!loading && !error && (
-          <FlatList
-            data={transactions}
-            renderItem={(itemData) => (
-              <Transactions transaction={itemData.item} />
-            )}
-            keyExtractor={(item) => item.id}
-          />
-        )}
+        {!loading && !error && <Transactions transactions={transactions} />}
       </View>
     </View>
   );
